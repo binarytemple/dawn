@@ -6,6 +6,10 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>swf</packaging>
 	<name>Contact list example</name>
+	<properties>
+	  <flexversion>3.5.0.12683</flexversion>
+	  <mojoversion>3.5.0</mojoversion>
+  </properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
@@ -13,11 +17,19 @@
 			<plugin>
 				<groupId>org.sonatype.flexmojos</groupId>
 				<artifactId>flexmojos-maven-plugin</artifactId>
-				<version>3.5.0</version>
+				<version>${mojoversion}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<targetPlayer>10.0.0</targetPlayer>
 				</configuration>
+				<dependencies>
+          <dependency>
+            <groupId>com.adobe.flex</groupId>
+            <artifactId>compiler</artifactId>
+            <version>${flexversion}</version>
+            <type>pom</type>
+          </dependency>
+        </dependencies>
 			</plugin>
 		</plugins>
 	</build>
